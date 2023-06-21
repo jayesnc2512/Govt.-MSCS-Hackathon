@@ -11,7 +11,7 @@ const SocietyList = () => {
   const [name, setName] = useState('');
   const [foundUsers, setFoundUsers] = useState();
 
-  const[keyword,SetKeyword]=useState(' ')
+  const[keyword,Setkeyword]=useState(' ')
 
   // the search result
 
