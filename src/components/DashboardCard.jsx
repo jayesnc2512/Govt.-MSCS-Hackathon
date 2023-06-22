@@ -4,7 +4,7 @@ function DashboardCard(props) {
     
 return(
     <li>
-	    <i className={props.icon} ></i>
+	    <i className={props.icon} onClick={props.onClick}></i>
 			<span className="text">
 			<h3>{props.number}</h3>
 			<p>{props.name}</p>

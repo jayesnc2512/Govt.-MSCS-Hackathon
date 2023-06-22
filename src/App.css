@@ -107,6 +107,14 @@ body {
 	background: var(--grey);
 	position: relative;
 }
+#sidebar .side-menu li.active2 {
+	background: var(--grey);
+	position: relative;
+}
+#sidebar .side-menu li.active3 {
+	background: var(--grey);
+	position: relative;
+}
 #sidebar .side-menu li.active::before {
 	content: '';
 	position: absolute;
@@ -119,6 +127,50 @@ body {
 	z-index: -1;
 }
 #sidebar .side-menu li.active::after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	bottom: -40px;
+	right: 0;
+	box-shadow: 20px -20px 0 var(--grey);
+	z-index: -1;
+}
+#sidebar .side-menu li.active2::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -40px;
+	right: 0;
+	box-shadow: 20px 20px 0 var(--grey);
+	z-index: -1;
+}
+#sidebar .side-menu li.active2::after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	bottom: -40px;
+	right: 0;
+	box-shadow: 20px -20px 0 var(--grey);
+	z-index: -1;
+}
+#sidebar .side-menu li.active3::before {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: -40px;
+	right: 0;
+	box-shadow: 20px 20px 0 var(--grey);
+	z-index: -1;
+}
+#sidebar .side-menu li.active3::after {
 	content: '';
 	position: absolute;
 	width: 40px;
@@ -405,7 +457,7 @@ body {
 	background: var(--light-yellow);
 	color: var(--yellow);
 }
-#content main .box-info li:nth-child(3) .bx {
+#content main .box-info .form li .bx {
 	background: var(--light-orange);
 	color: var(--orange);
 }
@@ -541,7 +593,7 @@ body {
 #content main .table-data .todo .todo-list li.completed {
 	border-left: 10px solid var(--blue);
 }
-#content main .table-data .todo .todo-list li.not-completed {
+#content main .table-data .todo li.not-completed {
 	border-left: 10px solid var(--orange);
 }
 #content main .table-data .todo .todo-list li:last-child {
@@ -632,3 +684,35 @@ body {
 	width: 300px;
   }
 
+
+  /* CHART  */
+  #content .charts .box-info li:nth-child(1) .bx {
+	height: 15px;
+	width:15px;
+	background: var(--light-blue);
+	color: var(--blue);
+}
+#content .charts .box-info li:nth-child(2) .bx {
+	height: 15px;
+	width:15px;
+	background: var(--light-yellow);
+	color: var(--yellow);
+}
+
+#content .charts .box-info li:nth-child(3) .bx {
+	height: 15px;
+	width: 15px;
+	background: var(--light-orange);
+	color: var(--orange);
+}
+  .charts .box-info li{
+	height: 20px;
+  }
+  .charts .box-info i{
+	size: 5px;
+  }
+.order .graph{
+	width:650px;
+	border: 2px solid var(--dark);
+	align-content: center;
+}

@@ -1,14 +1,28 @@
-import React from 'react';
+import React,{useState} from 'react';
 import image from '../img/people.png';
 import ParsedJson from './ParsedJson';
 import CardsUl from './CardsUl';
 import SocietyList from './SocietyList';
+import Sidebar from './Sidebar';
+import Navbar from './Navbar';
 import Recent from './Recent';
 import { Link } from "react-router-dom";
 
-const DashboardDefault = () => {
+const DashboardDefault = (props) => {
+	const[bool,SetBool]=useState(false)
+
+  function handleMenu(){
+    bool ? SetBool(false):SetBool(true)
+  }
 
   return (
+	<div>
+	<Sidebar hide={bool && "55px"} active="active"/>
+    <Navbar 
+      menu={handleMenu}
+      style={{left:bool && "60px", width:bool && "calc(100% - 60px)"}}
+    />
+	<section id="content"  style={{left:bool && "60px", width:bool && "calc(100% - 60px)"}}>
     <main>
 			<div className="head-title">
 				<div className="left">
@@ -31,12 +45,10 @@ const DashboardDefault = () => {
 				</Link>
 			</div>
 			<CardsUl />
-
-			
-				<SocietyList />
-	
+			<SocietyList />
 		</main>
-		
+		</section>
+	</div>
   )
 }
 

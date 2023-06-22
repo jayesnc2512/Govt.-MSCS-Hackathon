@@ -1,20 +1,28 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect,} from 'react';
+import { useParams } from 'react-router-dom';
 import ParsedJson from './ParsedJson';
 
+
+
 const Pdf = (props) => {
-    const [data,sethata]=useState()
+    const [data,setdata]=useState();
+    // const[state,setState]=useState();
+    const {state}= useParams();
 
     function getData(){
         ParsedJson()
-        .then((data)=>sethata(data))
+        .then((data)=>{
+            return setdata(data)
+        })
         .catch(err=>console.log(err,"get error in frontend"))
         .then(()=>window.print)
     }
+
     useEffect(()=>getData(),[]);
 
   return (
     <div id='printable'>
-     <div className="btn-download-pdf" onClick={window.print}>
+    <div className="btn-download-pdf" onClick={window.print}>
 					<i className='bx bxs-cloud-download' ></i>
 					<span className="text">Download PDF</span>
 				</div>
@@ -44,7 +52,7 @@ const Pdf = (props) => {
             <th>
               Sector
             </th>
-              {data?.map((ele)=>(
+              {data?.map((ele)=>ele.D===state&&(
                 <tr>
                 <td>
              {ele.A}
@@ -73,6 +81,7 @@ const Pdf = (props) => {
             </tr>
             ))}
         </table>
+        {console.log(data)}
     </div>
   )
 }

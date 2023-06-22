@@ -3,10 +3,11 @@ import ParsedJson from './ParsedJson';
 import Recent from './Recent';
 import SocietyDetails from './SocietyDetails';
 
-const SocietyList = () => {
+const SocietyList = (props) => {
     const [data,setData]=useState()
     const [index,setIndex]=useState()
     const [bool,setBool]=useState(true)
+    const[listBool,setListBool]=useState(false)
       // the value of the search field 
   const [name, setName] = useState('');
   const [foundUsers, setFoundUsers] = useState();
@@ -19,13 +20,19 @@ const SocietyList = () => {
         .then((data)=>setData(data),setFoundUsers(data))
         .catch(err=>console.log(err,"get error in frontend"))
     }
+
     useEffect(()=>getData(),[]);
+
+
     function handleClick(ele){
       return (
         setBool(false),
         setIndex(ele))
     }
+
+
     const filter = (e) => {
+      setListBool(true)
        const keyword = e.target.value;
       if (keyword !== '') {
         const results = data.filter((user) => {
@@ -39,9 +46,7 @@ const SocietyList = () => {
       }
   
       setName(keyword);
-    };
-
-    
+    };  
   return (
     <div className='table-data'>
     {bool? <Recent />:<SocietyDetails det={index}/>}
@@ -58,7 +63,8 @@ const SocietyList = () => {
         placeholder="Search"
       />     
 					<ul className="todo-list">
-          {foundUsers && foundUsers?.length > 0 ? (
+          {listBool ? (
+          foundUsers && foundUsers?.length > 0 ? (
            foundUsers?.map((element) => (
 						<li key={element.A} className="completed">
 							<p>{element.B}</p>
@@ -66,8 +72,16 @@ const SocietyList = () => {
 						</li> 
             ))
         ) : (
-          <h3></h3>
-        )}       
+          <h3>Result Not Found!</h3>
+        )):(
+          data?.map((element)=>(
+            <li key={element.A} className="completed">
+							<p>{element.B}</p>
+              <i onClick={()=>handleClick(element)} className='bx bx-dots-vertical-rounded' ></i>
+						</li> 
+          ))
+        )
+          }       
 					</ul>
 				</div>
         </div>

@@ -7,22 +7,22 @@ export const Sidebar= (props) => {
     <section id="sidebar" style={{width:props.hide}}>
     <a href="#" className="brand">
         <i className='bx bxs-smile'></i>
-        <span className="text">MLSC</span>
+        <span className="text">CRCS</span>
     </a>
     <ul className="side-menu top">
-        <li className="active">
+        <li className={props.active}>
             <Link to="/"  aria-current="page">
                 <i className='bx bxs-dashboard' ></i>
                 <span className="text">Dashboard</span>
             </Link>
         </li>
-        <li>
+        <li className={props.active2}>
         <Link to="/charts"  aria-current="page">
                 <i className='bx bxs-shopping-bag-alt' ></i>
                 <span className="text">Charts</span>
             </Link>
         </li>
-        <li>
+        <li className={props.active3}>
         <Link to="/analytics"  aria-current="page">
                 <i className='bx bxs-doughnut-chart' ></i>
                 <span className="text">Analytics</span>
@@ -30,12 +30,7 @@ export const Sidebar= (props) => {
         </li>
     </ul>
     <ul className="side-menu">
-        <li>
-            <a href="#">
-                <i className='bx bxs-cog' ></i>
-                <span className="text">Settings</span>
-            </a>
-        </li>
+       
         <li>
             <a href="#" className="logout">
                 <i className='bx bxs-log-out-circle' ></i>

@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react'
 import DashboardCard from './DashboardCard'
-import ParsedJson from './ParsedJson'
+import ParsedJson from './ParsedJson';
+import {Link } from 'react-router-dom';
 
 
 const CardsUl =() => {
@@ -31,11 +32,14 @@ useEffect(()=>getData(),[]);
             number="1020"
             name="Total Visitors"
         />
-        
+        <Link to="/registration">
+        <div className='form'>
         <DashboardCard 
             icon="bx bx-plus"
             name="New Registeration"
         />
+        </div>
+        </Link>
     </ul>
   )
 }
