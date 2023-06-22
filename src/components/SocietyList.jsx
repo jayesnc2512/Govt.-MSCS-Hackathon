@@ -11,7 +11,6 @@ const SocietyList = () => {
   const [name, setName] = useState('');
   const [foundUsers, setFoundUsers] = useState();
 
-  const[keyword,Setkeyword]=useState(' ')
 
   // the search result
 
@@ -26,9 +25,8 @@ const SocietyList = () => {
         setBool(false),
         setIndex(ele))
     }
-
     const filter = (e) => {
-      const keyword = e.target.value;
+       const keyword = e.target.value;
       if (keyword !== '') {
         const results = data.filter((user) => {
           return user.B.toLowerCase().startsWith(keyword.toLowerCase());
@@ -68,7 +66,7 @@ const SocietyList = () => {
 						</li> 
             ))
         ) : (
-          <h3>No results found!</h3>
+          <h3></h3>
         )}       
 					</ul>
 				</div>
